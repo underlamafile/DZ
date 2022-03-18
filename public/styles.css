@@ -75,8 +75,16 @@
     }
 
     .content{
-        background-color:#2196F3;
+        background: linear-gradient(0deg,#101010 20%,#1ED760 80%);
+        display:grid;
     }
+
+    .content__favorite{
+
+
+
+    }
+
 
     .friends{
         background-color:#000000;
