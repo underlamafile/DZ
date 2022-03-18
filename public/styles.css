@@ -75,15 +75,47 @@
     }
 
     .content{
-        background: linear-gradient(0deg,#101010 20%,#1ED760 80%);
-        display:grid;
+        background: linear-gradient(0deg,#101010 20%,#1E1153 80%);
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-around;
+        overflow-y:scroll;
     }
+
+    .content__favorites{
+        width:190px;
+        margin:10px;
+        background:linear-gradient(135deg,#6442EE 20%,#8985E6 80%);
+        color:white;
+        height:250px;
+        padding:20px;
+        text-align:bottom;
+    }
+
+    .favorite__tracks{
+        margin-bottom:40px;
+    }
+
+    .favorite__headlines{
+        font-size:20px;
+        }
+
+    .favorite__quantities{
+        font-size:22px;
+    }
+
 
     .content__favorite{
-
-
-
+        width:190px;
+        margin:10px;
+        background:#181818;
+        color:white;
+        height:250px;
+        padding:20px;
     }
+
+    .favorite__image{
+        max-width:100%;}
 
 
     .friends{
@@ -108,11 +140,13 @@
     }
 
     .footer{
+
         background-color: #181818;
         height: 100px;
         grid-column: 1 / 4;
         display:flex;
         align-items:center;
+        justify-content:space-between;
     }
 
     .footer__track{
@@ -125,8 +159,6 @@
     }
 
     .footer__cover{
-        margin-left:15px;
-        margin-top:0px;
         cursor:pointer;
     }
 
@@ -147,19 +179,36 @@
 
     .footer__play{
         display:flex;
-        justify-content:space-between;
+        justify-content:center;
         align-items:center;
-        padding-left:280px;
-        padding-right:280px;
         padding-bottom:10px;
     }
 
+    .footer__timecode{
+         display:flex;
+         justify-content:center;
+    }
+
+
     .footer__functions{
-        margin-left:170px;
         display:flex;
+        justify-content:center;
         align-items:center;
     }
 
     .footer__functions:nth-of-type(img){
         margin-right:100px;
     }
+
+    .footer__button{
+        margin-right:10px;
+    }
+
+
+    @media screen and (max-width:1500px){
+    .time{
+    width:300px;
+    }
+    .like__button{}
+    }
+
