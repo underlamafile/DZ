@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+      <link rel="stylesheet" href="./styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -23,15 +24,117 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+   <body class="app">
+        <header class="header">
+            <img src="/DZ/images/dots.png" width="27px" height="5px" />
+            <a href="" class="header__logo link" href="/">
+                <img src="/DZ/images/logo.png" alt="Логотип" width="32" height="32" />
+                <h1 class="hearer__title">Spotify</h1>
+            </a>
+            <input type="search" class="header__search" placeholder="Исполнитель, трек, или подкаст">
+            <nav class="header__navigation">
+                <a href="/" class="link">Home</a>
+                <a href="/" class="link">About</a>
+            </nav>
+        </header>
+        <aside class="accordion">
+            <ul class="aside__menus">
+                <li class="menu"> <img src="/DZ/images/home.png" style="width:16px; height:16px;"> Домой</li>
+                <li class="menu"> <img src="/DZ/images/search.png" style="width:16px; height:16px;"> Поиск</li>
+                <li class="menu"> <img src="/DZ/images/media.png" style="width:16px; height:16px;"> Моя медиатека</li>
+                <br>
+                <li class="menu">Создать плейлист </li>
+                <li class="menu">Любимые треки</li>
+            </ul>
+            <br>
+            <hr color="#282828">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+            <br>
+            <ul class="aside__playlists">
+                <li class="playlist">Duo Mix</li>
+                <li class="playlist">DOLLA DOLLA</li>
+                <li class="playlist">RED BOTTOM💧_💧</li>
+                <li class="playlist">Leonid,Pavel</li>
+                <li class="playlist">Officer Down</li>
+                <li class="playlist">Thirst</li>
+                <li class="playlist">Feelin' Fine</li>
+                <li class="playlist">THE SCOTTS</li>
+                <li class="playlist">Duo Mix</li>
+                <li class="playlist">DOLLA DOLLA</li>
+                <li class="playlist">RED BOTTOM💧_💧</li>
+                <li class="playlist">Leonid,Pavel</li>
+                <li class="playlist">Officer Down</li>
+                <li class="playlist">Thirst</li>
+                <li class="playlist">Feelin' Fine</li>
+                <li class="playlist">THE SCOTTS</li>
+                <li class="playlist">Duo Mix</li>
+                <li class="playlist">DOLLA DOLLA</li>
+                <li class="playlist">RED BOTTOM💧_💧</li>
+                <li class="playlist">Leonid,Pavel</li>
+                <li class="playlist">Officer Down</li>
+                <li class="playlist">Thirst</li>
+                <li class="playlist">Feelin' Fine</li>
+                <li class="playlist">THE SCOTTS</li>
+            </ul>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+        </aside>
+        <main class="content">
+
+        </main>
+        <aside class="friends">
+            <div>
+        <span class="friends__text" >Лента друзей </span> <img src="/DZ/images/friend.png" style="width:20px; height:20px;">
+            </div>
+                <br> <hr color="#282828"> <br>
+            <ul class="friends__list">
+                <li>
+                    <img src="/DZ/images/avatar1.jpg" width="64px" height="64px" align="left" class="avatar">
+                    <ul class="friends_track">
+                        <li> Иван Иванов</li>
+                        <li> DADDY-PSY</li>
+                        <li>PSY</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <img src="/DZ/images/avatar2.jpg" width="64px" height="64px" align="left" class="avatar">
+                    <ul class="friends_track">
+                        <li> Павел Павлов</li>
+                        <li> Donda-Hurricane</li>
+                        <li>Kanye West</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <img src="/DZ/images/avatar3.jpg" width="64px" height="64px" align="left" class="avatar">
+                    <ul class="friends_track">
+                        <li> Андрей Андреев</li>
+                        <li> Dystopia-Mafia</li>
+                        <li>Travis Scott</li>
+                    </ul>
+                </li>
+            </ul>
+
+
+        </aside>
+        <footer class="footer">
+           <div class="footer__cover">
+             <img src="/DZ/images/cover.jpg" width="64px" height="64px" align="left" class="footer__avatar" >
+                    <ul class="footer__track">
+                        <li class="track__name"> STARGAZING</li>
+                        <li class="track__musician"> Travis Scott</li>
+                    </ul>
+           </div>
+             <img src="/DZ/images/like.png" width="16px" height="16px" style="margin-left:30px; margin-right:180px;">
+            <ul class="footer__buttons">
+                <li class="footer__play"><img src="/DZ/images/shuffle.png" width="20px" height="20px"> <img src="/DZ/images/play-back.png" width="20px" height="20px"> <img src="/DZ/images/play-button.png" width="25px" height="25px"> <img src="/DZ/images/play-forward.png" width="20px" height="20px"> <img src="/DZ/images/replay.png" width="20px" height="20px"> </li>
+                <li><span class="footer__time">2:34</span> <img src="/DZ/images/time.png" style="margin-bottom:3px;"> <span class="footer__time">4:40</span></li>
+            </ul>
+            <span class="footer__functions">
+              <img src="/DZ/images/mic.png" width="20px" height="20px" style="margin-right:7px;"> <img src="/DZ/images/list.png" width="20px" height="20px" style="margin-right:7px;"> <img src="/DZ/images/devices.png" width="20px" height="20px" style="margin-right:7px;"> <img src="/DZ/images/volume.png" width="20px" height="20px" style="margin-right:7px;"> <img src="/DZ/images/volume1.png" width="64px" height="20px" style="margin-right:7px;"> <img src="/DZ/images/open.png" width="20px" height="20px" style="margin-right:7px;">
+            </span>
+        </footer>
+    </body>
+
   </body>
 </html>

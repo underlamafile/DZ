@@ -1,0 +1,157 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing:border-box;
+    }
+    .app {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 200px 1fr 200px;
+        grid-template-rows: min-content 1fr min-content;
+        font-family: Proxima Nova, Blooming Elegant Sans, Century Gothic, Tahoma, Geneva, sans-serif;
+    }
+
+    .header{
+        display:flex;
+        align-items:center;
+        padding:5px 50px 5px 20px;
+        background-color: #000000;
+        grid-column: 1 / 4;
+        font-size:18px;
+    }
+
+    .header__logo{
+        display:flex;
+        align-items:center;
+        width:170px;
+        margin-left:150px;
+    }
+
+    .header__title{
+        font-size:inherit;
+    }
+
+    .header__navigation{
+        margin-left:50px;
+    }
+
+    .header__search{
+        margin-left:auto;
+        width:100%;
+        min-width:100px;
+        max-width:500px;
+    }
+
+    .accordion{
+        padding:15px;
+        background-color:#000000;
+    }
+
+    .aside__menus{
+        color:#FFFFFF;
+        list-style:none;
+        font-size:20px;
+    }
+
+    .menu{
+        cursor:pointer;
+    }
+
+    img{
+        cursor:pointer;
+    }
+
+    .aside__playlists{
+        overflow-y:scroll;
+        height:370px;
+        color:#FFFFFF;
+        list-style:none;
+        font-size:16px;
+    }
+
+    .playlist{
+        cursor:pointer;
+        margin-bottom:5px;
+    }
+
+    .content{
+        background-color:#2196F3;
+    }
+
+    .friends{
+        background-color:#000000;
+        width:200px;
+        color:#FFFFFF;
+    }
+
+    .friends__text{
+        margin-right:35px;
+        margin-left:10px;
+        font-size:20px;
+    }
+
+    li{
+        list-style-type: none;
+    }
+
+    .avatar{
+        margin-left:5px;
+        margin-right:5px;
+    }
+
+    .footer{
+        background-color: #181818;
+        height: 100px;
+        grid-column: 1 / 4;
+        display:flex;
+        align-items:center;
+    }
+
+    .footer__track{
+        color:#FFFFFF;
+        display:inline-block;
+    }
+
+    .track__name{
+        padding-top:15px;
+    }
+
+    .footer__cover{
+        margin-left:15px;
+        margin-top:0px;
+        cursor:pointer;
+    }
+
+    .footer__avatar{
+        margin-left:5px;
+        margin-right:10px;
+        cursor:pointer;
+    }
+
+    .track__musician{
+        font-size:13px;
+        color:#808080;
+    }
+
+    .footer__time{
+        color:#7D8589;
+    }
+
+    .footer__play{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding-left:280px;
+        padding-right:280px;
+        padding-bottom:10px;
+    }
+
+    .footer__functions{
+        margin-left:170px;
+        display:flex;
+        align-items:center;
+    }
+
+    .footer__functions:nth-of-type(img){
+        margin-right:100px;
+    }
