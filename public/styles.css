@@ -60,10 +60,12 @@
     .hr__color{
         border:none;
         border-top:2px solid #282828;
+        margin-top:20px;
+        margin-bottom:20px;
     }
 
     .aside__playlists{
-        overflow-y:scroll;
+        overflow-y:auto;
         height:370px;
         color:#FFF;
         list-style:none;
@@ -116,8 +118,8 @@
     }
 
     .favorite__image{
-        max-width:100%;}
-
+        max-width:100%;
+    }
 
     .friends{
         background-color:#000;
@@ -131,10 +133,7 @@
         font-size:20px;
     }
 
-    .friends__list{
-        list-style-type: none;
-    }
-
+    .friends__list,
     .friends__track{
         list-style-type: none;
     }
