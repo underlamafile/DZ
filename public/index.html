@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+      <link rel="stylesheet" href="%PUBLIC_URL%/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -20,18 +21,205 @@
     -->
     <title>React App</title>
   </head>
-  <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <!--<div id="root"></div> -->
+   <body class="app">
+        <header class="header">
+            <img src="%PUBLIC_URL%/images/dots.png"  width="27" height="5" />
+            <a href="#" class="header__logo link">
+                <img src="%PUBLIC_URL%/images/logo.png" alt="Логотип" width="32" height="32" />
+                <h1 class="hearer__title">Spotify</h1>
+            </a>
+            <input type="search" class="header__search" placeholder="Исполнитель, трек, или подкаст">
+            <nav class="header__navigation">
+                <a href="/" class="link">Home</a>
+                <a href="/" class="link">About</a>
+            </nav>
+        </header>
+        <aside class="accordion">
+                <ul class="aside__menus">
+                    <li class="menu"> <img src="%PUBLIC_URL%/images/home.png" width="16" height="16"> Домой</li>
+                    <li class="menu"> <img src="%PUBLIC_URL%/images/search.png" width="16" height="16"> Поиск</li>
+                    <li class="menu"> <img src="%PUBLIC_URL%/images/media.png" width="16" height="16"> Моя медиатека</li>
+                    <br>
+                    <li class="menu">Создать плейлист </li>
+                    <li class="menu">Любимые треки</li>
+                </ul>
+            <hr class="hr__color">
+            <ul class="aside__playlists">
+                <li class="playlist">Duo Mix</li>
+                <li class="playlist">DOLLA DOLLA</li>
+                <li class="playlist">RED BOTTOM💧_💧</li>
+                <li class="playlist">Leonid,Pavel</li>
+                <li class="playlist">Officer Down</li>
+                <li class="playlist">Thirst</li>
+                <li class="playlist">Feelin' Fine</li>
+                <li class="playlist">THE SCOTTS</li>
+                <li class="playlist">Duo Mix</li>
+                <li class="playlist">DOLLA DOLLA</li>
+                <li class="playlist">RED BOTTOM💧_💧</li>
+                <li class="playlist">Leonid,Pavel</li>
+                <li class="playlist">Officer Down</li>
+                <li class="playlist">Thirst</li>
+                <li class="playlist">Feelin' Fine</li>
+                <li class="playlist">THE SCOTTS</li>
+                <li class="playlist">Duo Mix</li>
+                <li class="playlist">DOLLA DOLLA</li>
+                <li class="playlist">RED BOTTOM💧_💧</li>
+                <li class="playlist">Leonid,Pavel</li>
+                <li class="playlist">Officer Down</li>
+                <li class="playlist">Thirst</li>
+                <li class="playlist">Feelin' Fine</li>
+                <li class="playlist">THE SCOTTS</li>
+            </ul>
+        </aside>
+        <main class="content">
+            <div class="content__favorites">
+                <p class="favorite__tracks">Don Toliver • Candy Lil Wayne Uproar • Mercy Jonas Brothers • PayDay Young Thug</p>
+                <p class="favorite__headlines">Любимые треки</p>
+                <p class="favorite__quantities">1000 треков</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album1.png">
+                <p class="favorite__headline">Любимые треки</p>
+                <p class="favorite__quantity">1000 треков</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album2.png">
+                <p class="favorite__headline">Альбом1</p>
+                <p class="favorite__quantity">Автор:Иван</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album3.png">
+                <p class="favorite__headline">Любимые треки</p>
+                <p class="favorite__quantity">1000 треков</p>
+            </div>
+             <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album4.png">
+                <p class="favorite__headline">Альбом1</p>
+                <p class="favorite__quantity">Автор:Иван</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album1.png">
+                <p class="favorite__headline">Любимые треки</p>
+                <p class="favorite__quantity">1000 треков</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album2.png">
+                <p class="favorite__headline">Альбом1</p>
+                <p class="favorite__quantity">Автор:Иван</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album3.png">
+                <p class="favorite__headline">Любимые треки</p>
+                <p class="favorite__quantity">1000 треков</p>
+            </div>
+             <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album4.png">
+                <p class="favorite__headline">Альбом1</p>
+                <p class="favorite__quantity">Автор:Иван</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album1.png">
+                <p class="favorite__headline">Любимые треки</p>
+                <p class="favorite__quantity">1000 треков</p>
+            </div>
+              <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album4.png">
+                <p class="favorite__headline">Альбом1</p>
+                <p class="favorite__quantity">Автор:Иван</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album1.png">
+                <p class="favorite__headline">Любимые треки</p>
+                <p class="favorite__quantity">1000 треков</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album2.png">
+                <p class="favorite__headline">Альбом1</p>
+                <p class="favorite__quantity">Автор:Иван</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album3.png">
+                <p class="favorite__headline">Любимые треки</p>
+                <p class="favorite__quantity">1000 треков</p>
+            </div>
+            <div class="content__favorite">
+                <img class="favorite__image" src="%PUBLIC_URL%/images/album3.png">
+                <p class="favorite__headline">Любимые треки</p>
+                <p class="favorite__quantity">1000 треков</p>
+            </div>
+        </main>
+        <aside class="friends">
+            <div>
+                <span class="friends__text">Лента друзей </span>
+                <img src="%PUBLIC_URL%/images/friend.png" width="20" height="20">
+            </div>
+            <hr class="hr__color">
+            <ul class="friends__list">
+                <li>
+                    <img src="%PUBLIC_URL%/images/avatar1.jpg" width="64" height="64" align="left" class="avatar">
+                    <ul class="friends__track">
+                        <li> Иван Иванов</li>
+                        <li> DADDY-PSY</li>
+                        <li>PSY</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <img src="%PUBLIC_URL%/images/avatar2.jpg" width="64" height="64" align="left" class="avatar">
+                    <ul class="friends__track">
+                        <li> Павел Павлов</li>
+                        <li> Donda-Hurricane</li>
+                        <li>Kanye West</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <img src="%PUBLIC_URL%/images/avatar3.jpg" width="64" height="64" align="left" class="avatar">
+                    <ul class="friends__track">
+                        <li> Андрей Андреев</li>
+                        <li> Dystopia-Mafia</li>
+                        <li>Travis Scott</li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <footer class="footer">
+           <div class="footer__cover">
+               <img src="%PUBLIC_URL%/images/cover.jpg" width="64" height="64" align="left" class="footer__avatar" >
+                    <ul class="footer__track">
+                        <li class="track__name"> STARGAZING</li>
+                        <li class="track__musician"> Travis Scott</li>
+                    </ul>
+               <img class="like__button" src="%PUBLIC_URL%/images/like.png" width="16" height="16">
+           </div>
+            <div>
+                <ul class="footer__buttons">
+                    <li class="footer__play">
+                        <img class="footer__button" src="%PUBLIC_URL%/images/shuffle.png" width="20px" height="20px">
+                        <img class="footer__button" src="%PUBLIC_URL%/images/play-back.png" width="20px" height="20px">
+                        <img class="footer__button" src="%PUBLIC_URL%/images/play-button.png" width="25px" height="25px">
+                        <img class="footer__button" src="%PUBLIC_URL%/images/play-forward.png" width="20px" height="20px">
+                        <img class="footer__button" src="%PUBLIC_URL%/images/replay.png" width="20px" height="20px">
+                    </li>
+                    <li class="footer__timecode">
+                        <div>
+                            <span class="footer__time">2:34</span>
+                            <img class="time" src="/images/time.png">
+                            <span class="footer__time">4:40</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__functions">
+                <img src="%PUBLIC_URL%/images/mic.png" class="footer__function" width="20px" height="20px">
+                <img src="%PUBLIC_URL%/images/list.png" class="footer__function" width="20px" height="20px">
+                <img src="%PUBLIC_URL%/images/devices.png" class="footer__function" width="20px" height="20px">
+                <img src="%PUBLIC_URL%/images/volume.png" class="footer__function" width="20px" height="20px">
+                <img src="%PUBLIC_URL%/images/volume1.png" class="footer__function" width="64px" height="20px">
+                <img src="%PUBLIC_URL%/images/open.png" class="footer__function" width="20px" height="20px">
+            </div>
+        </footer>
   </body>
 </html>
