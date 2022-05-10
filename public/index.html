@@ -10,20 +10,10 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <title>React App</title>
   </head>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <!--<div id="root"></div> -->
-   <body class="app">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <body class="app">
         <header class="header">
             <img src="%PUBLIC_URL%/images/dots.png"  width="27" height="5" />
             <a href="#" class="header__logo link">
@@ -38,12 +28,12 @@
         </header>
         <aside class="accordion">
                 <ul class="aside__menus">
-                    <li class="menu"> <img src="%PUBLIC_URL%/images/home.png" width="16" height="16"> Домой</li>
+                    <li class="menu home"> <img src="%PUBLIC_URL%/images/home.png" width="16" height="16"> Домой</li>
                     <li class="menu"> <img src="%PUBLIC_URL%/images/search.png" width="16" height="16"> Поиск</li>
                     <li class="menu"> <img src="%PUBLIC_URL%/images/media.png" width="16" height="16"> Моя медиатека</li>
                     <br>
                     <li class="menu">Создать плейлист </li>
-                    <li class="menu">Любимые треки</li>
+                    <li class="menu fav">Любимые треки</li>
                 </ul>
             <hr class="hr__color">
             <ul class="aside__playlists">
@@ -74,81 +64,6 @@
             </ul>
         </aside>
         <main class="content">
-            <div class="content__favorites">
-                <p class="favorite__tracks">Don Toliver • Candy Lil Wayne Uproar • Mercy Jonas Brothers • PayDay Young Thug</p>
-                <p class="favorite__headlines">Любимые треки</p>
-                <p class="favorite__quantities">1000 треков</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album1.png">
-                <p class="favorite__headline">Любимые треки</p>
-                <p class="favorite__quantity">1000 треков</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album2.png">
-                <p class="favorite__headline">Альбом1</p>
-                <p class="favorite__quantity">Автор:Иван</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album3.png">
-                <p class="favorite__headline">Любимые треки</p>
-                <p class="favorite__quantity">1000 треков</p>
-            </div>
-             <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album4.png">
-                <p class="favorite__headline">Альбом1</p>
-                <p class="favorite__quantity">Автор:Иван</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album1.png">
-                <p class="favorite__headline">Любимые треки</p>
-                <p class="favorite__quantity">1000 треков</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album2.png">
-                <p class="favorite__headline">Альбом1</p>
-                <p class="favorite__quantity">Автор:Иван</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album3.png">
-                <p class="favorite__headline">Любимые треки</p>
-                <p class="favorite__quantity">1000 треков</p>
-            </div>
-             <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album4.png">
-                <p class="favorite__headline">Альбом1</p>
-                <p class="favorite__quantity">Автор:Иван</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album1.png">
-                <p class="favorite__headline">Любимые треки</p>
-                <p class="favorite__quantity">1000 треков</p>
-            </div>
-              <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album4.png">
-                <p class="favorite__headline">Альбом1</p>
-                <p class="favorite__quantity">Автор:Иван</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album1.png">
-                <p class="favorite__headline">Любимые треки</p>
-                <p class="favorite__quantity">1000 треков</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album2.png">
-                <p class="favorite__headline">Альбом1</p>
-                <p class="favorite__quantity">Автор:Иван</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album3.png">
-                <p class="favorite__headline">Любимые треки</p>
-                <p class="favorite__quantity">1000 треков</p>
-            </div>
-            <div class="content__favorite">
-                <img class="favorite__image" src="%PUBLIC_URL%/images/album3.png">
-                <p class="favorite__headline">Любимые треки</p>
-                <p class="favorite__quantity">1000 треков</p>
-            </div>
         </main>
         <aside class="friends">
             <div>
@@ -221,5 +136,6 @@
                 <img src="%PUBLIC_URL%/images/open.png" class="footer__function" width="20px" height="20px">
             </div>
         </footer>
-  </body>
+    </body>
+    <script src="requests.js" type="module"></script>
 </html>
