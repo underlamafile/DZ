@@ -7,7 +7,7 @@
  * @param {string} secret
  * @returns {string} закодированная строка
  */
-function md5_encode(api_key,artist,sk,track,secret) {
+function md5_encode(api_key,artist='',sk,track='',secret) {
     var MD5 = function (d) {
         d = unescape(encodeURIComponent(d));
         let result = M(V(Y(X(d), 8 * d.length)));

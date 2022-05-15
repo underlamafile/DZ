@@ -219,7 +219,7 @@
     }
 
     .unlove_button {
-        margin-top: 5%;
+        margin: 10% 0 10% 0;
     }
 
     @media screen and (max-width:1500px){
