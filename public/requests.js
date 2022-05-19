@@ -6,7 +6,7 @@ import md5_encode from './MD5.js'
 const search_input = document.querySelector('.header__search');
 search_input.addEventListener('keydown', function(e) {
     if (e.keyCode === 13) {
-        send_request('GET','track.search',search_input.value).then(
+        send_request('GET','track.search',`&track=${search_input.value}`,search_input.value).then(
             res => get_content('search',res.results.trackmatches.track)
         )
     }
@@ -17,7 +17,7 @@ search_input.addEventListener('keydown', function(e) {
  */
 const fav_button = document.querySelector('.fav');
 fav_button.addEventListener('click', function() {
-    send_request('GET','user.getlovedtracks').then(
+    send_request('GET','user.getlovedtracks','&user=Foxyb0y').then(
         res => get_content('favorites',res.lovedtracks.track)
     )
 });
@@ -26,41 +26,36 @@ fav_button.addEventListener('click', function() {
  *
  * @param method метод Апи (GET или POST)
  * @param request_method параметр запроса - метод
+ * @param require_param параметр определяет какой GET-запрос отправить
  * @param track название трека
  * @param artist имя артиста
  * @returns {Promise} Выполненный промис
  */
-async function send_request(method,request_method,track= '',artist='') {
+async function send_request(method,request_method,require_param='',track= '',artist='') {
     const url = 'http://ws.audioscrobbler.com/2.0/'
     const api_key = '906db58ae0258689ba249d53210358ee';
-    if (method === 'GET') {
-        if (request_method === 'track.search') {
-            const response = await fetch(`${url}?api_key=${api_key}&method=${request_method}&track=${track}&format=json`, {
+    try {
+        if (method === 'GET') {
+            const response = await fetch(`${url}?api_key=${api_key}&method=${request_method}${require_param}&format=json`, {
                 method: 'GET'
             });
             return await response.json()
-        }
-        else if (request_method === 'user.getlovedtracks') {
-            const response = await fetch(`${url}?api_key=${api_key}&method=${request_method}&user=Foxyb0y&format=json`, {
-                method: 'GET'
+        } else if (method === 'POST') {
+            const sk = 'PEJSZfVNq8UlcfpQoiME1HzKEaFYAClf';
+            const secret = '04e5fe9b4835a8387149c2770345a9af';
+            const params = new URLSearchParams({
+                'track': track, 'artist': artist, 'api_key': api_key,
+                'api_sig': `${md5_encode(api_key, artist, sk, track, secret)}`, 'sk': sk, 'method': request_method
             });
+            const response = fetch(url, {
+                method: 'POST',
+                body: params,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            })
             return await response.json();
         }
-        else {
-            alert('Ошибка отправки запроса')
-        }
-    }
-    else if (method === 'POST') {
-        const sk = 'PEJSZfVNq8UlcfpQoiME1HzKEaFYAClf';
-        const secret = '04e5fe9b4835a8387149c2770345a9af';
-        const params = new URLSearchParams( {'track': track,'artist': artist,'api_key': api_key,
-            'api_sig': `${md5_encode(api_key,artist,sk,track,secret)}`,'sk': sk,'method': request_method});
-        const response = fetch(url, {
-            method: 'POST',
-            body: params,
-            headers: {'Content-Type':'application/x-www-form-urlencoded'}
-        })
-        return await response.json();
+    } catch (err) {
+        alert(`Произошла ошибка ${err}`)
     }
 }
 
@@ -74,7 +69,7 @@ async function send_request(method,request_method,track= '',artist='') {
 function get_content(response_content,track_array,track=null,artist=null) {
     const content = document.querySelector('.content');
     content.innerHTML = "";
-    if (track_array.length !== 0) {
+    if (track_array.length) {
         track_array.forEach((track) => {
             const content_favorite = document.createElement("div");
             const favorite_image = document.createElement("img");
@@ -95,7 +90,7 @@ function get_content(response_content,track_array,track=null,artist=null) {
                 unlove_button.textContent = 'удалить';
                 content_favorite.appendChild(unlove_button);
                 unlove_button.addEventListener('click', function() {
-                    send_request('POST','track.unlove',track.name,track.artist.name)
+                    send_request('POST','track.unlove','',track.name,track.artist.name)
                 });
             }
             favorite_quantity.textContent = track.name;
@@ -106,6 +101,9 @@ function get_content(response_content,track_array,track=null,artist=null) {
         })
     }
     else {
-        content.innerHTML = '<p class="error">Трек или исполнитель не найден, повторите запрос</p>';
+        const error = document.createElement("p");
+        error.className = "error";
+        error.textContent = 'Трек или исполнитель не найден, повторите запрос';
+        content.appendChild(error)
     }
 }
