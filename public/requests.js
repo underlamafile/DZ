@@ -6,8 +6,15 @@ import md5_encode from './MD5.js'
 const search_input = document.querySelector('.header__search');
 search_input.addEventListener('keydown', function(e) {
     if (e.keyCode === 13) {
-        send_request('GET','track.search',`&track=${search_input.value}`,search_input.value).then(
-            res => get_content('search',res.results.trackmatches.track)
+        send_request('GET',{method:'track.search',param:`&track=${search_input.value}`,track:search_input.value}).then(
+            res => {
+                if (res.hasOwnProperty('results')) {
+                    get_content('search',res.results.trackmatches.track)
+                }
+                else {
+                    alert('Произошла ошибка поиска, повторите попытку')
+                }
+            }
         )
     }
 });
@@ -17,7 +24,7 @@ search_input.addEventListener('keydown', function(e) {
  */
 const fav_button = document.querySelector('.fav');
 fav_button.addEventListener('click', function() {
-    send_request('GET','user.getlovedtracks','&user=Foxyb0y').then(
+    send_request('GET',{method:'user.getlovedtracks',param:'&user=Foxyb0y'}).then(
         res => get_content('favorites',res.lovedtracks.track)
     )
 });
@@ -25,39 +32,38 @@ fav_button.addEventListener('click', function() {
 /**
  *
  * @param method метод Апи (GET или POST)
- * @param request_method параметр запроса - метод
- * @param require_param параметр определяет какой GET-запрос отправить
- * @param track название трека
- * @param artist имя артиста
+ * @param params
  * @returns {Promise} Выполненный промис
  */
-async function send_request(method,request_method,require_param='',track= '',artist='') {
-    const url = 'http://ws.audioscrobbler.com/2.0/'
+async function send_request(method,params) {
+    const url = 'http://ws.audioscrobbler.com/2.0/';
     const api_key = '906db58ae0258689ba249d53210358ee';
     try {
         if (method === 'GET') {
-            const response = await fetch(`${url}?api_key=${api_key}&method=${request_method}${require_param}&format=json`, {
+            const response = await fetch(`${url}?api_key=${api_key}&method=${params.method}${params.param}&format=json`, {
                 method: 'GET'
             });
             return await response.json()
         } else if (method === 'POST') {
             const sk = 'PEJSZfVNq8UlcfpQoiME1HzKEaFYAClf';
             const secret = '04e5fe9b4835a8387149c2770345a9af';
-            const params = new URLSearchParams({
-                'track': track, 'artist': artist, 'api_key': api_key,
-                'api_sig': `${md5_encode(api_key, artist, sk, track, secret)}`, 'sk': sk, 'method': request_method
+            const url_params = new URLSearchParams({
+                'track': params.track, 'artist': params.artist, 'api_key': api_key,
+                'api_sig': `${md5_encode(api_key, params.artist, sk, params.track, secret)}`, 'sk': sk, 'method': params.method
             });
-            const response = fetch(url, {
+            const response = await fetch(url, {
                 method: 'POST',
-                body: params,
+                body: url_params,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             })
-            return await response.json();
         }
     } catch (err) {
-        alert(`Произошла ошибка ${err}`)
+        alert(`Произошла ошибка ${err.message}`);
+        throw new Error(`Произошла ошибка ${err.message}`);
     }
 }
+
+//request_method,require_param='',track= '',artist=''
 
 /**
  *
@@ -70,6 +76,7 @@ function get_content(response_content,track_array,track=null,artist=null) {
     const content = document.querySelector('.content');
     content.innerHTML = "";
     if (track_array.length) {
+        const button_array = [];
         track_array.forEach((track) => {
             const content_favorite = document.createElement("div");
             const favorite_image = document.createElement("img");
@@ -84,19 +91,25 @@ function get_content(response_content,track_array,track=null,artist=null) {
                 favorite_headline.textContent = track.artist;
             }
             if (response_content === 'favorites') {
+                const listener = function () {
+                    send_request('POST',{method:'track.unlove',param:'',
+                        track:track.name,artist:track.artist.name});
+                    button_array.forEach(elem => {
+                        elem.removeEventListener('click',listener)
+                    })
+                }
                 const unlove_button = document.createElement("button")
                 favorite_headline.textContent = track.artist.name;
                 unlove_button.className = 'unlove_button';
                 unlove_button.textContent = 'удалить';
                 content_favorite.appendChild(unlove_button);
-                unlove_button.addEventListener('click', function() {
-                    send_request('POST','track.unlove','',track.name,track.artist.name)
-                });
+                unlove_button.addEventListener('click',listener);
+                button_array.push(unlove_button);
             }
             favorite_quantity.textContent = track.name;
             content.appendChild(content_favorite);
             content_favorite.appendChild(favorite_image);
-            content_favorite.appendChild(favorite_headline)
+            content_favorite.appendChild(favorite_headline);
             content_favorite.appendChild(favorite_quantity);
         })
     }
