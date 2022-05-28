@@ -220,6 +220,7 @@
 
     .unlove_button {
         margin: 10% 0 10% 0;
+        cursor: pointer;
     }
 
     @media screen and (max-width:1500px){

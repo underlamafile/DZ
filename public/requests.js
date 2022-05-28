@@ -8,7 +8,7 @@ search_input.addEventListener('keydown', function(e) {
     if (e.keyCode === 13) {
         send_request('GET',{method:'track.search',param:`&track=${search_input.value}`,track:search_input.value}).then(
             res => {
-                if (res.hasOwnProperty('results')) {
+                if (res?.hasOwnProperty('results')) {
                     get_content('search',res.results.trackmatches.track)
                 }
                 else {
@@ -29,6 +29,8 @@ fav_button.addEventListener('click', function() {
     )
 });
 
+
+
 /**
  *
  * @param method метод Апи (GET или POST)
@@ -36,7 +38,7 @@ fav_button.addEventListener('click', function() {
  * @returns {Promise} Выполненный промис
  */
 async function send_request(method,params) {
-    const url = 'http://ws.audioscrobbler.com/2.0/';
+    const url = 'https://ws.audioscrobbler.com/2.0/';
     const api_key = '906db58ae0258689ba249d53210358ee';
     try {
         if (method === 'GET') {
@@ -76,7 +78,9 @@ function get_content(response_content,track_array,track=null,artist=null) {
     const content = document.querySelector('.content');
     content.innerHTML = "";
     if (track_array.length) {
-        const button_array = [];
+        document.querySelectorAll('.unlove_button').forEach(unlove => {
+            unlove.removeEventListener('click', unlove.listener)
+        });
         track_array.forEach((track) => {
             const content_favorite = document.createElement("div");
             const favorite_image = document.createElement("img");
@@ -91,20 +95,20 @@ function get_content(response_content,track_array,track=null,artist=null) {
                 favorite_headline.textContent = track.artist;
             }
             if (response_content === 'favorites') {
-                const listener = function () {
-                    send_request('POST',{method:'track.unlove',param:'',
-                        track:track.name,artist:track.artist.name});
-                    button_array.forEach(elem => {
-                        elem.removeEventListener('click',listener)
-                    })
-                }
-                const unlove_button = document.createElement("button")
+                const unlove_button = document.createElement("button");
+                unlove_button.track_name = track.name;
+                unlove_button.artist_name = track.artist.name;
                 favorite_headline.textContent = track.artist.name;
                 unlove_button.className = 'unlove_button';
                 unlove_button.textContent = 'удалить';
+                unlove_button.listener = function () {
+                    send_request('POST', {
+                        method: 'track.unlove', param: '',
+                        track: unlove_button.track_name, artist: unlove_button.artist_name
+                    })
+                }
                 content_favorite.appendChild(unlove_button);
-                unlove_button.addEventListener('click',listener);
-                button_array.push(unlove_button);
+                unlove_button.addEventListener('click',unlove_button.listener);
             }
             favorite_quantity.textContent = track.name;
             content.appendChild(content_favorite);
