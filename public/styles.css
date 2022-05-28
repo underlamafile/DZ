@@ -81,7 +81,7 @@
         background: linear-gradient(0deg,#101010 20%,#1E1153 80%);
         display:flex;
         flex-wrap:wrap;
-        justify-content:space-around;
+        justify-content:flex-start;
         overflow-y:scroll;
     }
 
@@ -90,9 +90,8 @@
         margin:10px;
         background:linear-gradient(135deg,#6442EE 20%,#8985E6 80%);
         color:white;
-        height:250px;
+        height:320px;
         padding:20px;
-        text-align:bottom;
     }
 
     .favorite__tracks{
@@ -113,7 +112,7 @@
         margin:10px;
         background:#181818;
         color:white;
-        height:250px;
+        height:320px;
         padding:20px;
     }
 
@@ -212,6 +211,16 @@
 
     .time{
         margin-bottom:3px;
+    }
+
+    .error {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .unlove_button {
+        margin: 10% 0 10% 0;
+        cursor: pointer;
     }
 
     @media screen and (max-width:1500px){
