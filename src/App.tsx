@@ -1,23 +1,46 @@
 import React from 'react';
+import Layout from "./Components/Layout/Layout";
+import { Routes, Route } from 'react-router-dom'
+import './index.css';
+import SearchTrack from "./Components/SearchTrack";
+import LovedTracks from "./Components/LovedTracks";
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+/*
+    const defaultState : ITracks = {
+    result: {
+        tracks: [],
+        action: ''
+    },
+    setResult: (value:any) => {}
+};
 
-// export default App;
+interface ITracks {
+    result:  {
+        tracks: any[],
+        action: string
+    }
+    setResult: (value:any) => void;
+}
+
+export const TracksContext = React.createContext<ITracks>(defaultState)
+
+//const [result,setResult] = useState({tracks:[],action:''})
+//value={{result: result,setResult: setResult}}
+ */
+
+function App() {
+
+    return (
+        <>
+            <Routes>
+               <Route path="/" element={<Layout/>}>
+                   <Route index element={<SearchTrack/>}/>
+                   <Route path="/search" element={<SearchTrack/>}/>
+                   <Route path="/lovedTracks" element={<LovedTracks/>}/>
+               </Route>
+            </Routes>
+        </>
+    );
+}
+
+export default App;
