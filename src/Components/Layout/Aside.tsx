@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import '../../index.css'
 import home from '../../images/home.png';
 import search from '../../images/search.png';
@@ -6,8 +6,6 @@ import media from '../../images/media.png';
 import {Link} from "react-router-dom";
 
 function Aside() {
-
-    //const {setResult} = useContext(TracksContext)
 
     return (
         <aside className="accordion">

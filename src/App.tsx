@@ -5,29 +5,6 @@ import './index.css';
 import SearchTrack from "./Components/SearchTrack";
 import LovedTracks from "./Components/LovedTracks";
 
-/*
-    const defaultState : ITracks = {
-    result: {
-        tracks: [],
-        action: ''
-    },
-    setResult: (value:any) => {}
-};
-
-interface ITracks {
-    result:  {
-        tracks: any[],
-        action: string
-    }
-    setResult: (value:any) => void;
-}
-
-export const TracksContext = React.createContext<ITracks>(defaultState)
-
-//const [result,setResult] = useState({tracks:[],action:''})
-//value={{result: result,setResult: setResult}}
- */
-
 function App() {
 
     return (

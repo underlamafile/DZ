@@ -4,17 +4,16 @@ import dots from '../../images/dots.png';
 import logo from '../../images/logo.png';
 import {useNavigate} from "react-router-dom";
 
-//import {TracksContext} from "../../App";
-
 function Header() {
 
-    //const {setResult} = useContext(TracksContext)
     const navigate = useNavigate();
 
     const send_data = () => {
         const search_input:HTMLInputElement | null = document.querySelector('.header__search');
         navigate(`/search?value=${search_input!.value}`)
     }
+
+
 
     return (
         <header className="header">
